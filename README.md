@@ -4,46 +4,38 @@
 
 This uses a raspberry Pi to read temeperature and humidity using a DHT22 sensor and controls a fridge with the following controls:
 
-          Temperature Too High - Turn fridge on
-          Temperature Too Low - Turn fridge off + turn on heater
+```
+Temperature Too High - Turn fridge on
+Temperature Too Low - Turn fridge off + turn on heater
 
-          Humidity Too High - turn on Fridge + Turn on heater if needed
-          Humidity Too Low - turn off Fridge + Turn on humidifyer
+Humidity Too High - turn on Fridge + Turn on heater if needed
+Humidity Too Low - turn off Fridge + Turn on humidifier
 
-          Circulate Air - circulate the air inside fridge
+Circulate Air - circulate the air inside fridge
 
-          Air_Pump - inject fresh air from outside fridge
+Air_Pump - inject fresh air from outside fridge
 
-          Weight 1 - read from load cell_1 using load cell connected to HX711 A-D converter 
-          Weight 2 - read from load cell_2
-          Weight 3 - read from load cell_3
-          Weight 4 - read from load cell_4
+Weight 1 - read from load cell_1 using load cell connected to HX711 A-D converter 
+Weight 2 - read from load cell_2
+Weight 3 - read from load cell_3
+Weight 4 - read from load cell_4
+```
+## Hardware
+- An [8-Channel 5V Relay Module](https://www.sainsmart.com/products/8-channel-5v-relay-module)
+- A [Load Cell Sensor](https://www.amazon.com/uxcell-Electronic-Balance-Weighing-Sensor/dp/B006W2IDUO)
+- 
+HX711 DAC https://www.amazon.com/DIYmall-Weighing-Conversion-Sensors-Microcontroller/dp/B010FG9RXO/ref=sr_1_1?s=electronics&ie=UTF8&qid=1497712204&sr=8-1&keywords=DIYmall+2pcs+Hx711+Weight+Weighing+Load+Cell+Conversion+Module+Sensors+Ad+Module+for+Arduino+Microcontroller
 
-  
-  
-  Using 8 channel relay (5v, 120v) https://www.sainsmart.com/arduino-compatibles-1/relay/8-channel-dc-5v-relay-module-for-arduino-pic-arm-dsp-avr-msp430-ttl-logic.html
-  
-  Load Cells https://www.amazon.com/uxcell-Electronic-Balance-Weighing-Sensor/dp/B006W2IDUO/ref=sr_1_1?s=home-garden&ie=UTF8&qid=1497712404&sr=1-1&keywords=uxcell+Electronic+Balance+Weighing+Load+Cell+Sensor+0-5Kg
-  
-  HX711 DAC https://www.amazon.com/DIYmall-Weighing-Conversion-Sensors-Microcontroller/dp/B010FG9RXO/ref=sr_1_1?s=electronics&ie=UTF8&qid=1497712204&sr=8-1&keywords=DIYmall+2pcs+Hx711+Weight+Weighing+Load+Cell+Conversion+Module+Sensors+Ad+Module+for+Arduino+Microcontroller
-  
-  HX711 DAC code (thanks ggurov!) https://github.com/ggurov/hx711  The code is in 'c' and I don't believe Python would work due to timing sensitiviies in reading data from the DAC.
-  
-  
-  
-  The parameters to control the fridge are held in a google sheet (see GSPREAD below).
-  
-  The output data is held in a google sheet (see gspread below)
-  
-  PorkPi is monitored with a watchdog (both hard and soft)
-  
-  PorkPi reports errors / crashes / restarts via email.
-  
-  PorkPi responds to email commands for restart and shutdown
-  
-  
-  Files:
- 
+HX711 DAC code (thanks ggurov!) https://github.com/ggurov/hx711  The code is in 'c' and I don't believe Python would work due to timing sensitiviies in reading data from the DAC.
+
+The parameters to control the fridge are held in a google sheet (see GSPREAD below).
+The output data is held in a google sheet (see gspread below)
+PorkPi is monitored with a watchdog (both hard and soft)
+PorkPi reports errors / crashes / restarts via email.
+PorkPi responds to email commands for restart and shutdown
+
+Files:
+
   /etc/rc.local
   1. Waits for wireless lan to initiate
   2. sends email saying rebooted
