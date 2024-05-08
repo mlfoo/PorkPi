@@ -1,5 +1,6 @@
 # PorkPi
-Raspberry Pi control for meat curing chamber
+
+> Monitor and control a meat curing chamber using Raspberry Pi.
 
 This uses a raspberry Pi to read temeperature and humidity using a DHT22 sensor and controls a fridge with the following controls:
 
